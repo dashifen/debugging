@@ -1,5 +1,5 @@
 {
-  "name": "dashifen/debugger",
+  "name": "dashifen/debugging",
   "description": "A PHP Trait that defines static methods used for on-screen debugging.",
   "minimum-stability": "stable",
   "license": "MIT",
@@ -12,7 +12,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Dashifen\\Debugger\\": "src"
+      "Dashifen\\Debugging\\": "src"
     }
   },
   "config": {

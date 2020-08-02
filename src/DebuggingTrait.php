@@ -1,10 +1,10 @@
 <?php
 
-namespace Dashifen\Debugger;
+namespace Dashifen\Debugging;
 
 use Throwable;
 
-trait DebuggerTrait
+trait DebuggingTrait
 {
   /**
    * debug
