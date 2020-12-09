@@ -64,12 +64,17 @@ trait DebuggingTrait
   /**
    * writeLog
    *
-   * Writes information about our caught Throwable to the PHP log.
+   * Writes information about our parameter to the PHP log.  Ideally, this is
+   * a Throwable, but it doesn't really matter what it is.
    *
-   * @param Throwable $thrown
+   * @param mixed $thrown
    */
-  public static function writeLog(Throwable $thrown): void
+  public static function writeLog($thrown): void
   {
-    error_log(print_r($thrown, true));
+    $error = is_array($thrown) || is_object($thrown)
+      ? print_r($thrown, true)
+      : $thrown;
+    
+    error_log($error);
   }
 }
