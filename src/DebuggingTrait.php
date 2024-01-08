@@ -19,9 +19,13 @@ trait DebuggingTrait
    *
    * @return void
    */
-  public static function debug($stuff, bool $die = false, bool $force = false): void
+  public static function debug(mixed $stuff, bool $die = false, bool $force = false): void
   {
     if (self::isDebug() || $force) {
+      if (($callingScope = debug_backtrace(limit: 1)[0] ?? null) !== null) {
+        echo '[' . basename($callingScope['file']) . ', ' . $callingScope['line'] . ']<br>';
+      }
+      
       $message = "<pre>" . print_r($stuff, true) . "</pre>";
       
       if (!$die) {
@@ -69,7 +73,7 @@ trait DebuggingTrait
    *
    * @param mixed $thrown
    */
-  public static function writeLog($thrown): void
+  public static function writeLog(mixed $thrown): void
   {
     $error = is_array($thrown) || is_object($thrown)
       ? print_r($thrown, true)

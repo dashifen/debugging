@@ -17,5 +17,8 @@
   },
   "config": {
     "optimize-autoloader": true
+  },
+  "require": {
+    "php": ">=8.0"
   }
 }
